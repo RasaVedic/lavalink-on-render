@@ -9,9 +9,7 @@ lavalink:
       soundcloud: true
       twitch: true
       vimeo: true
+      mixer: true
       http: true
       local: false
-    filters: true
-logging:
-  file:
-    path: ./logs/
+      
