@@ -1,7 +1,15 @@
-FROM eclipse-temurin:18-jre-jammy
-
-WORKDIR /opt/Lavalink
-COPY Lavalink.jar Lavalink.jar
-COPY application.yml application.yml
-
-ENTRYPOINT ["java", "-jar", "Lavalink.jar"]
+server:
+  port: 2333
+lavalink:
+  server:
+    password: "youshallnotpass"
+    sources:
+      youtube: true
+      bandcamp: true
+      soundcloud: true
+      twitch: true
+      vimeo: true
+      mixer: true
+      http: true
+      local: false
+      
