@@ -1,11 +1,10 @@
-FROM eclipse-temurin:18-jre-jammy
+FROM node:16.16-bullseye
 
-WORKDIR /opt/Lavalink
+WORKDIR /app
 
-# Zarrorat pade toh yahan folders bana lo (agar files/filters use karna hai)
-RUN mkdir -p /opt/Lavalink/files /opt/Lavalink/filters
+COPY package*.json ./
+RUN npm install
 
-COPY Lavalink.jar Lavalink.jar
-COPY application.yml application.yml
+COPY . .
 
-ENTRYPOINT ["java", "-jar", "Lavalink.jar"]
+CMD ["node", "index.js"]
