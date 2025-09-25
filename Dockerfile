@@ -1,6 +1,7 @@
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:18-jre-jammy
+
 WORKDIR /opt/Lavalink
-COPY Lavalink.jar .
-COPY application.yml .
-EXPOSE 2333
-CMD ["java", "-jar", "Lavalink.jar"]
+COPY Lavalink.jar Lavalink.jar
+COPY application.yml application.yml
+
+ENTRYPOINT ["java", "-jar", "Lavalink.jar"]
