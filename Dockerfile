@@ -1,10 +1,15 @@
-FROM node:16.16-bullseye
+FROM eclipse-temurin:17-jre-jammy
 
-WORKDIR /app
+WORKDIR /opt/Lavalink
 
-COPY package*.json ./
-RUN npm install
+# Create necessary directories
+RUN mkdir -p files filters
 
-COPY . .
+# Remove npm install - it's not needed for Java app
+# RUN npm install  <-- REMOVE THIS LINE
 
-CMD ["node", "index.js"]
+# Copy application files
+COPY Lavalink.jar ./
+COPY application.yml ./
+
+ENTRYPOINT ["java", "-jar", "Lavalink.jar"]
